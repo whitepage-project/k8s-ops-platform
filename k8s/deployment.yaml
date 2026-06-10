@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-ops-platform
+spec:
+  template:
+    metadata:
+      labels:
+        app: k8s-ops
+      spec:
+        containers:
+          - name: k8s-ops-platform
+            image: k8s-ops-platform:latest
+            imagePullPolicy: Never
+            ports:
+              - containerPort: 5000
