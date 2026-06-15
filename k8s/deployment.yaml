@@ -7,10 +7,18 @@ spec:
     metadata:
       labels:
         app: k8s-ops
-      spec:
-        containers:
-          - name: k8s-ops-platform
-            image: k8s-ops-platform:latest
-            imagePullPolicy: Never
-            ports:
-              - containerPort: 5000
+    spec:
+      containers:
+        - name: k8s-ops-platform
+          image: k8s-ops-platform:419001115762.dkr.ecr.ap-northeast-2.amazonaws.com/k8s-ops-platform
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 5000
+      resources:
+        requests:
+          cpu: "100m"
+        limits:
+          cpu: "300m"
+  selector:
+    matchLabels:
+      app: k8s-ops
